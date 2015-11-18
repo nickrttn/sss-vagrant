@@ -71,15 +71,9 @@ Vagrant.configure(2) do |config|
   	sudo apt-get upgrade -y
   	sudo apt-get -y install build-essential libssl-dev
 
-  	# installeer node version manager
-  	curl https://raw.githubusercontent.com/creationix/nvm/v0.17.2/install.sh | bash
-
-  	# laad node version manager in als uit te voeren command in bash
-  	source ~/.nvm/nvm.sh
-
-  	# installeer de laatste versie van node en stel deze in als default
-  	nvm install 5.0.0
-  	nvm alias default 5.0.0
+  	# Voeg de repo van NodeSource
+  	curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+		sudo apt-get install -y nodejs
 
   	# installeer nodemon als global node package
   	npm install -g nodemon
