@@ -16,7 +16,7 @@ There's no MySQL yet, but it's coming. You will need some commandline skills for
 - Clone this repository to a convenient location; ` git clone https://github.com/nickrttn/sss-vagrant.git sss-vagrant`
 - Execute `vagrant plugin install vagrant-hostsupdater`
 - Navigate to the repository you just cloned (`cd sss-vagrant`) and execute `vagrant up` to download and provision the VM. This is going to take a while!
-- Open your browser and navigate to `http://node.dev` to witness your code in all its glory.
+- Open your browser and navigate to `http://node.dev:3000/hello` to witness your code in all its glory.
 - Open the app folder in your favorite text editor and edit away.
 
 **Regular use**
