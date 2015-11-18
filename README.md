@@ -12,5 +12,5 @@ This version does not supply MySQL, yet, but it's on its way.
 - Open up your Terminal.app
 - Clone this repository; `https://github.com/nickrttn/sss-vagrant.git`
 - Execute `vagrant plugin install vagrant-hostsupdater`
-- Navigate to the repository you just cloned and execute `vagrant up` to download and provision the VM.
+- Navigate to the repository you just cloned and execute `vagrant up` to download and provision the VM. This is going to take a while!
 - Open your browser and navigate to `http://node.dev` to witness your code in all its glory.
