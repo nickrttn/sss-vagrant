@@ -16,10 +16,10 @@ sudo chmod 644 /etc/init/forever.conf
 sudo chown root:root /etc/init/forever.conf
 
 # Navigate to our application directory
-cd /home/vagrant/app
+cd /vagrant/app
 
 # Install the required node packages
 sudo npm install
 
 # Start forever and watch for file changes
-forever start index.js --watch
+forever start --watch index.js
