@@ -27,12 +27,14 @@ Vagrant.configure(2) do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.network "private_network", ip: "192.168.50.4"
-  config.vm.hostname = "node.dev"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
   config.vm.network "public_network"
+
+  # Set a custom hostname
+  config.vm.hostname = "node.dev"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
@@ -48,50 +50,12 @@ Vagrant.configure(2) do |config|
     # Display the VirtualBox GUI when booting the machine
     vb.gui = false
 
-    # Customize the amount of memory on the VM:
-    vb.memory = "4096"
+    # Customize the amount of memory on the VM to use 1024M
+    vb.memory = "1024"
   end
-  #
-  # View the documentation for the provider you are using for more
-  # information on available options.
 
-  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
-  # such as FTP and Heroku are also available. See the documentation at
-  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
-  # config.push.define "atlas" do |push|
-  #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
-  # end
+  # Provision our fresh Ubuntu VM using bootstrap.sh.
+  # Check the code comments in there to see what it does.
+  config.vm.provision "shell", path: "bootstrap.sh"
 
-  # Dit is het provision script waarmee de ubuntu box ingesteld wordt. Zie voor meer uitleg de comments in het script.
-
-  config.vm.provision "shell", inline: <<-SHELL
-
-  	# update en installeer benodigde software
-  	sudo apt-get update
-  	sudo apt-get upgrade -y
-  	sudo apt-get -y install build-essential libssl-dev
-
-  	# Voeg de repo van NodeSource
-  	curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-		sudo apt-get install -y nodejs
-
-  	# installeer nodemon als global node package
-  	npm install -g nodemon
-
-  	# navigeer naar de applicatie-directory en voer npm install uit
-  	cd /home/vagrant/app
-  	npm install
-
-  	# start nodemon
-  	nodemon index.js
-
-  SHELL
-
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   sudo apt-get update
-  #   sudo apt-get install -y apache2
-  # SHELL
 end
