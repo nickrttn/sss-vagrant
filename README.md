@@ -15,7 +15,7 @@ There's no MySQL yet, but it's coming. You will need some commandline skills for
 - Open up your Terminal.app or Windows equivalent
 - Clone this repository to a convenient location; ` git clone https://github.com/nickrttn/sss-vagrant.git sss-vagrant`
 - Execute `vagrant plugin install vagrant-hostsupdater`
-- Navigate to the repository you just cloned (`cd sss-vagrant`) and execute `vagrant up` to download and provision the VM. This is going to take a while!
+- Navigate to the repository you just cloned (`cd sss-vagrant`) and execute `vagrant up` to download and provision the VM. This is going to take a while! The script might ask you some questions.
 - Open your browser and navigate to `http://node.dev:3000/hello` to witness your code in all its glory.
 - Open the app folder in your favorite text editor and edit away.
 
@@ -35,3 +35,8 @@ I use [`forever`](https://github.com/foreverjs/forever) for running the code. Fo
 ## Warning
 
 I have not tested this on Windows.
+
+## To Do
+
+- use port 80
+- always start `forever` on start

@@ -54,6 +54,9 @@ Vagrant.configure(2) do |config|
     vb.memory = "1024"
   end
 
+  # Upload forever.conf to our home directory
+  config.vm.provision "file", source: "forever.conf", destination: "forever.conf"
+
   # Provision our fresh Ubuntu VM using bootstrap.sh.
   # Check the code comments in there to see what it does.
   config.vm.provision "shell", path: "bootstrap.sh"

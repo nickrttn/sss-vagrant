@@ -12,6 +12,13 @@ sudo npm install -g npm
 # Install forever to run our node application headless
 sudo npm install -g forever
 
+# Copy our Upstart script forever.conf to the right location and update its permissions
+sudo cp /home/vagrant/forever.conf /etc/init/forever.conf
+
+# Set correct permissions, user and user group on forever.conf
+sudo chmod 644 /etc/init/forever.conf
+sudo chown root:root /etc/init/forever.conf
+
 # Navigate to our application directory
 cd /home/vagrant/app
 
